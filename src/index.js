@@ -14,7 +14,7 @@ const client = new Client({
 
 
 client.on('ready' , (c) => {
-    console.log("it is ready")
+    console.log(`${c.user.tag} is ready`)
     })
-    
+
 client.login(process.env.TOKEN);
