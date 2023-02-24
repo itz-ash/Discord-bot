@@ -17,4 +17,8 @@ client.on('ready' , (c) => {
     console.log(`${c.user.tag} is ready`)
     })
 
+client.on('messageCreate', (msg) => {
+    console.log(msg.content);
+})
+
 client.login(process.env.TOKEN);
