@@ -17,13 +17,48 @@ client.on('ready', (c) => {
 client.on('interactionCreate', (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
-  if (interaction.commandName === 'embed'){
+  if (interaction.commandName === 'embed') {
     const embed = new EmbedBuilder()
-    .setDescription('loda')
-    .setColor('Random')
-    .setTitle('this is embed');
+      .setTitle('Embed title')
+      .setDescription('This is an embed description')
+      .setColor('Random')
+      .addFields(
+        {
+          name: 'Field title',
+          value: 'Some random value',
+          inline: true,
+        },
+        {
+          name: '2nd Field title',
+          value: 'Some random value',
+          inline: true,
+        }
+      );
 
-    interaction.reply({ embeds: [embed] })
+    interaction.reply({ embeds: [embed] });
+  }
+});
+
+client.on('messageCreate', (message) => {
+  if (message.content === 'embed') {
+    const embed = new EmbedBuilder()
+      .setTitle('Embed title')
+      .setDescription('This is an embed description')
+      .setColor('Random')
+      .addFields(
+        {
+          name: 'Field title',
+          value: 'Some random value',
+          inline: true,
+        },
+        {
+          name: '2nd Field title',
+          value: 'Some random value',
+          inline: true,
+        }
+      );
+
+    message.channel.send({ embeds: [embed] });
   }
 });
 
