@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, EmbedBuilder } = require('discord.js');
 
 const client = new Client({
   intents: [
@@ -17,20 +17,13 @@ client.on('ready', (c) => {
 client.on('interactionCreate', (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
-  if (interaction.commandName === 'hey') {
-    return interaction.reply('hey!');
-  }
+  if (interaction.commandName === 'embed'){
+    const embed = new EmbedBuilder()
+    .setDescription('loda')
+    .setColor('Random')
+    .setTitle('this is embed');
 
-  if (interaction.commandName === 'ping') {
-    return interaction.reply('Pong!');
-  }
-
-  if (interaction.commandName === 'add'){
-    const num1 = interaction.options.get('first-number').value;
-    const num2 = interaction.options.get('second-number').value;
-
-    interaction.reply(`the sum is ${num1 + num2}`);
-
+    interaction.reply({ embeds: [embed] })
   }
 });
 

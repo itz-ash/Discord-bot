@@ -3,31 +3,9 @@ const { REST, Routes, ApplicationCommandOptionType } = require('discord.js');
 
 const commands = [
   {
-    name: 'hey',
-    description: 'Replies with hey!',
+    name: 'embed',
+    description: 'Replies with embed!',
   },
-  {
-    name: 'ping',
-    description: 'Pong!',
-  },
-  {
-    name: 'add',
-    description: 'add two numbers',
-    options: [
-        {
-            name: 'first-number',
-            description: 'first number',
-            type: ApplicationCommandOptionType.Number,
-            required: true,
-        },
-        {
-            name: 'second-number',
-            description: 'second number',
-            type: ApplicationCommandOptionType.Number,
-            required: true,
-        }
-    ],
-  }
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
