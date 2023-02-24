@@ -18,7 +18,10 @@ client.on('ready' , (c) => {
     })
 
 client.on('messageCreate', (msg) => {
-    console.log(msg.content);
+    if (msg.author.bot){
+        return;
+    }
+    console.log(msg.reply(`${msg}`));
 })
 
 client.login(process.env.TOKEN);
