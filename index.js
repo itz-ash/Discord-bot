@@ -25,7 +25,8 @@ for (const folder of commandFolders) {
     }
   }
 }
-
+slashCommandsManager = require("./deploy-commands")
+slashCommandsManager();
 
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
@@ -39,5 +40,6 @@ for (const file of eventFiles) {
     client.on(event.name, (...args) => event.execute(...args));
   }
 }
+
 
 client.login(process.env.DISCORD_BOT_TOKEN);
