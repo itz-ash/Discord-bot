@@ -3,7 +3,6 @@ const { config } = require("dotenv")
 config();
 const fs = require('node:fs');
 const path = require('node:path');
-const { Z_ASCII } = require('node:zlib');
 
 //env
 const token = process.env.DISCORD_BOT_TOKEN

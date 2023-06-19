@@ -25,6 +25,8 @@ for (const folder of commandFolders) {
     }
   }
 }
+
+// reload slash commands on start
 slashCommandsManager = require("./deploy-commands")
 slashCommandsManager();
 
